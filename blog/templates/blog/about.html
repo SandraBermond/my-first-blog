@@ -19,6 +19,10 @@
         h2 {
           font-size: 2.5em;
         }
+        a {
+          text-decoration: none;
+          color: white;
+        }
         p {
           font-size: 1.5em;
         }
@@ -28,14 +32,13 @@
 
         <h1>Welcome to my About Page</h1>
 
-        <h2>About Me</h2>
+        {% for post in about %}
+          <div>
+              <p>published: {{ post.published_date }}</p>
+              <h2><a href="">{{ post.title }}</a></h2>
+              <p>{{ post.text|linebreaksbr }}</p>
+          </div>
+        {% endfor %}
 
-        <p>Welcome to my about page! I'm Sandra, a student in Web Development at Durhamtech. I am
-          passionate about front end coding, especially the design aspect of it, and I'm trying my
-          best to follow the back end portion of my studies.</p>
-
-        <h2>About this Blog</h2>
-        <p>This blog is about the different things that I learn each day. It may thus be quite
-          scattered... like my brain... but hopefully you will enjoy it nonetheless!</p>
     </body>
 </html>

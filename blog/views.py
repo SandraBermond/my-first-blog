@@ -13,4 +13,5 @@ def post_list(request):
 
 
 def about(request):
-    return render(request, 'blog/about.html', {})
+    about = Post.objects.filter(title__contains='About')
+    return render(request, 'blog/about.html', {'about':about})
